@@ -12,8 +12,32 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery.min.js"></script>
+=======
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class", 
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1A1A1A",
+              "background-light": "#FFFFFF",
+              "background-dark": "#121212",
+            },
+            fontFamily: {
+              display: ["'Be Vietnam Pro'", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+            },
+          },
+        },
+      };
+    </script>
+>>>>>>> 4514cc0a2b2b0a99a2e57c6994563853d3d20276
   </head>
   <body>
     <header>
@@ -33,6 +57,7 @@
           <button><span class="material-icons-outlined">person_outline</span></button>
           <button><span class="material-icons-outlined">shopping_bag</span></button>
         </div>
+<<<<<<< HEAD
       </div>
     </header>
 
@@ -42,6 +67,266 @@
           <h2 class="mb-4" style="font-size: 2.5rem;">Mang Giai Điệu Đến Cuộc Sống</h2>
           <p class="mb-4">
             Thành lập từ năm 2010, <strong>Harmony</strong> là điểm đến uy tín cho những người yêu âm nhạc. Chúng tôi tin rằng âm nhạc là một phần không thể thiếu của cuộc sống.
+=======
+      </header>
+      <main class="py-16 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div class="flex flex-col justify-center">
+            <h2
+              class="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4"
+            >
+              Về chúng tôi
+            </h2>
+            <h3
+              class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+            >
+              Mang Giai Điệu Đến Cuộc Sống
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              Thành lập từ năm 2010,
+              <span class="font-bold text-gray-800 dark:text-white"
+                >Harmony</span
+              >
+              là điểm đến uy tín cho những người yêu âm nhạc. Chúng tôi tin rằng
+              âm nhạc là một phần không thể thiếu của cuộc sống, và sứ mệnh của
+              chúng tôi là cung cấp những nhạc cụ chất lượng nhất để mỗi cá nhân
+              có thể tự do thể hiện đam mê và sáng tạo.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Từ những cây đàn guitar cổ điển đến những chiếc piano điện hiện
+              đại, mỗi sản phẩm đều được chúng tôi lựa chọn kỹ lưỡng, đảm bảo
+              mang lại âm thanh tuyệt hảo và trải nghiệm chơi nhạc đỉnh cao.
+            </p>
+            <div class="flex flex-wrap items-center gap-6">
+              <a
+                class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 bg-primary text-white font-semibold rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark"
+                href="#"
+              >
+                Khám Phá Sản Phẩm
+              </a>
+              <div class="flex items-center space-x-4">
+                <a
+                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                    ></path>
+                  </svg>
+                </a> 
+                <a
+                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216 4.61 4.61 0 0 0-2.633-2.633 6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.71-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.186.42 4.61 4.61 0 0 0-2.633 2.633 6.53 6.53 0 0 0-.419 2.216c-.043.962-.055 1.267-.055 3.71s0 2.754.055 3.71c.015.748.156 1.486.419 2.216a4.61 4.61 0 0 0 2.633 2.633 6.606 6.606 0 0 0 2.186.42c.962.043 1.267.055 3.71.055s2.755 0 3.71-.055a6.606 6.606 0 0 0 2.186-.42 4.61 4.61 0 0 0 2.633-2.633 6.53 6.53 0 0 0 .419-2.216c.043-.962.055-1.267.055-3.71s0-2.754-.055-3.71zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm4.87-6.962a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"
+                    ></path>
+                  </svg>
+                </a>
+                <a
+                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.296 1.634 4.208 3.803 4.649-.6.162-1.224.218-1.86.086.608 1.956 2.36 3.379 4.445 3.419-1.725 1.353-3.886 2.162-6.23 2.162-.414 0-.82-.024-1.218-.072 2.234 1.432 4.891 2.27 7.732 2.27 9.278 0 14.344-7.683 14.04-14.376.983-.71 1.832-1.594 2.516-2.608z"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Image container with hover scale effect -->
+          <div
+            class="group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+          >
+            <img
+              alt="A person playing a grand piano in a music store, with various guitars hanging on the wall in the background"
+              class="w-full h-full object-cover rounded-lg transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAAlgf5cgvGbDplMW7ptsLxkqq2KuF12PmiBE6JypPY_aPsGxTfyLZqEbkQZ0vXAdxu6lx0JShHDtw8DUC2xjOZQ4pxGIUAvonRFCXGkgWHvaqIwnfQy492aE6wnvi5gpq7udHsbU8nqiuxMmTjUqVZeHtHyblzbZA9fiUTq0yskDcPpb0ecO8n1rXBY_YBYVhmgSjZedBVa3Q2B_sfCYMUI8gGvam2-1Y_ywFJpwJd9JrHVYzTfCz3h4jpo33VgEYKGWUZo4B8p0"
+            />
+          </div>
+        </div>
+        <!-- Newsletter Section -->
+        <section
+          class="py-16 md:py-24 border-t border-gray-200 dark:border-gray-800 mt-16"
+        >
+          <div class="text-center max-w-2xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+              Đăng Ký Nhận Tin Tức
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+              Nhận thông tin cập nhật về sản phẩm mới, ưu đãi đặc biệt và các sự
+              kiện âm nhạc.
+            </p>
+            <form class="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
+              <input
+                class="flex-grow w-full px-5 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                placeholder="Nhập email của bạn"
+                type="email"
+              />
+              <button
+                class="bg-primary text-white py-3 px-8 rounded-md font-semibold hover:bg-gray-800 dark:hover:bg-gray-700 transition-colors whitespace-nowrap shadow-lg"
+                type="submit"
+              >
+                Đăng Ký
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+      <footer class="py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <!-- Column 1 -->
+          <div class="col-span-1 md:col-span-1">
+            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              Harmony
+            </h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              Cửa hàng nhạc cụ cho mọi tâm hồn yêu âm nhạc.
+            </p>
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <h4 class="font-bold mb-4 text-gray-900 dark:text-white">
+              Cửa hàng
+            </h4>
+            <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+              <li>
+                <a
+                  class="hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                  >Sản phẩm</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                  >Bộ sưu tập</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                  >Blog âm nhạc</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Column 3 -->
+          <div>
+            <h4 class="font-bold mb-4 text-gray-900 dark:text-white">Hỗ trợ</h4>
+            <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+              <li>
+                <a
+                  class="hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                  >Liên hệ</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                  >Câu hỏi thường gặp</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary dark:hover:text-white transition-colors"
+                  href="#"
+                  >Chính sách bảo hành</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Column 4 -->
+          <div>
+            <h4 class="font-bold mb-4 text-gray-900 dark:text-white">
+              Theo dõi chúng tôi
+            </h4>
+            <div class="flex space-x-5">
+              <!-- Facebook Icon -->
+              <a
+                class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
+                href="#"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                  clip-rule="evenodd"
+                  fill="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <!-- Twitter Icon -->
+              <a
+                class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
+                href="#"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  ></path>
+                </svg>
+              </a>
+              <!-- Instagram Icon -->
+              <a
+                class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
+                href="#"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                  clip-rule="evenodd"
+                  fill="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.65 2.84c.636-.247 1.363-.416 2.427-.465C9.098 2.33 9.452 2.316 12.315 2zm-1.076 1.8c-2.613 0-2.946.011-3.978.058-.962.044-1.484.204-1.832.338-.456.177-.781.388-1.123.73-.342.342-.553.667-.73 1.123-.134.348-.294.87-.338 1.832-.047 1.032-.058 1.365-.058 3.978 0 2.613.011 2.946.058 3.978.044.962.204 1.484.338 1.832.177.456.388.781.73 1.123.342.342.667.553 1.123.73.348.134.87.294 1.832.338 1.032.047 1.365.058 3.978.058 2.613 0 2.946-.011 3.978-.058.962-.044 1.484-.204 1.832-.338.456-.177.781-.388 1.123-.73.342-.342.553-.667.73-1.123.134-.348.294-.87.338-1.832.047-1.032.058-1.365.058-3.978 0-2.613-.011-2.946-.058-3.978-.044-.962-.204-1.484-.338-1.832-.177-.456-.388-.781-.73-1.123-.342-.342-.667-.553-1.123-.73-.348-.134-.87-.294-1.832-.338-1.032-.047-1.365-.058-3.978-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.8a3.335 3.335 0 100 6.67 3.335 3.335 0 000-6.67zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div
+          class="border-t border-gray-200 dark:border-gray-800 pt-8 text-center"
+        >
+          <p class="text-sm text-gray-400">
+            © 2024 Harmony. All Rights Reserved.
+>>>>>>> 4514cc0a2b2b0a99a2e57c6994563853d3d20276
           </p>
           <p class="mb-8">
             Từ những cây đàn guitar cổ điển đến những chiếc piano điện hiện đại, mỗi sản phẩm đều được chúng tôi lựa chọn kỹ lưỡng.
