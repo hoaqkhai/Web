@@ -1,493 +1,113 @@
 <!DOCTYPE html>
-<html class="light" lang="vi">
+<html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Blog âm nhạc</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1A1A1A",
-              "background-light": "#ffffff",
-              "background-dark": "#121212",
-            },
-            fontFamily: {
-              display: ["Inter", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem", // 8px
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .fade-in {
-        animation: fadeIn 0.8s ease-out forwards;
-      }
-      .fade-in-1 {
-        animation-delay: 0.1s;
-      }
-      .fade-in-2 {
-        animation-delay: 0.2s;
-      }
-      .fade-in-3 {
-        animation-delay: 0.3s;
-      }
-      .fade-in-4 {
-        animation-delay: 0.4s;
-      }
-      .fade-in-5 {
-        animation-delay: 0.5s;
-      }
-      .fade-in-6 {
-        animation-delay: 0.6s;
-      }
-      .fade-in-7 {
-        animation-delay: 0.7s;
-      }
-      .fade-in-8 {
-        animation-delay: 0.8s;
-      }
-      .fade-in-9 {
-        animation-delay: 0.9s;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
   </head>
-  <body
-    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <header class="py-6 border-b border-gray-200 dark:border-gray-700">
-        <div class="flex justify-between items-center">
-          <h1
-            class="text-2xl font-bold tracking-tighter text-gray-900 dark:text-white"
-          >
-            HARMONY
-          </h1>
-          <nav class="hidden md:flex items-center space-x-8">
-            <a
-              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-              href="/index.html"
-              >Home</a
-            >
-            <a
-              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-              href="/about.html"
-              >Giới thiệu</a
-            >
-            <a
-              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-              href="/product.html"
-              >Sản phẩm</a
-            >
-            <a
-              class="text-sm font-bold text-primary dark:text-white"
-              href="/blog.html"
-              >Blog âm nhạc</a
-            >
-            <a
-              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-              href="/contact.html"
-              >Liên hệ</a
-            >
-          </nav>
-          <div class="flex items-center space-x-4">
-            <button
-              class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-            >
-              <span class="material-icons-outlined">search</span>
-            </button>
-            <button
-              class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-            >
-              <span class="material-icons-outlined">person_outline</span>
-            </button>
-            <button
-              class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-            >
-              <span class="material-icons-outlined">shopping_bag</span>
-            </button>
+  <body>
+    <header>
+      <div class="container flex justify-between items-center">
+        <h1 class="logo">Harmony</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="product.html">Sản phẩm</a></li>
+            <li><a href="blog.html" class="active">Blog âm nhạc</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+        <div class="header-icons flex items-center">
+          <button><span class="material-icons-outlined">search</span></button>
+          <button><span class="material-icons-outlined">person_outline</span></button>
+          <button><span class="material-icons-outlined">shopping_bag</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container py-12">
+      <div class="text-center mb-8">
+        <h2 class="mb-4" style="font-size: 2.5rem;">Blog âm nhạc</h2>
+        <p style="color: #666;">Khám phá những câu chuyện, kiến thức và cảm hứng từ thế giới âm nhạc.</p>
+      </div>
+
+      <div class="blog-list">
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuChanMYApchY0BCPL3VPZSNKmTsCHEOf0fZvXeDX8cmAbTwZ-0S6-V0sj3Wh8xMQHYPUVAUOKmUhcg0SGfbUE478EihcUtQlfMQ--Tcu6wXXwFQHYhodfq_IJd5F0Zepj-Kr8Ay2HzDH8oB47UhnX2V5s9TOcs-76-EWczGIogABbCAs0Uo8zM7TsGr2g9w9BSk6R_FPfLBN7lZ7aZe5adEZwOvjod-TJTKMqh9zOZiduE4Zzx7dhFrnJnHgUeAu5nqRCaCwbdgSCc" alt="Blog 1" class="blog-img">
+          <div class="blog-content">
+            <p class="blog-date">15/07/2023</p>
+            <h3 class="blog-title"><a href="#">Bí quyết để viết một đoạn điệp khúc bắt tai</a></h3>
+            <p>Học cách tạo ra những giai điệu điệp khúc không thể quên.</p>
           </div>
         </div>
-      </header>
-      <main class="py-16">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white"
-          >
-            Blog âm nhạc
-          </h2>
-          <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Khám phá những câu chuyện, kiến thức và cảm hứng từ thế giới âm
-            nhạc.
-          </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div
-            class="bg-white dark:bg-zinc-800/50 rounded-lg overflow-hidden group opacity-0 fade-in fade-in-1 shadow-sm border border-gray-100 dark:border-gray-800"
-          >
-            <a href="#">
-              <img
-                alt="Người đang nghe nhạc với tai nghe"
-                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuChanMYApchY0BCPL3VPZSNKmTsCHEOf0fZvXeDX8cmAbTwZ-0S6-V0sj3Wh8xMQHYPUVAUOKmUhcg0SGfbUE478EihcUtQlfMQ--Tcu6wXXwFQHYhodfq_IJd5F0Zepj-Kr8Ay2HzDH8oB47UhnX2V5s9TOcs-76-EWczGIogABbCAs0Uo8zM7TsGr2g9w9BSk6R_FPfLBN7lZ7aZe5adEZwOvjod-TJTKMqh9zOZiduE4Zzx7dhFrnJnHgUeAu5nqRCaCwbdgSCc"
-              />
-            </a>
-            <div class="p-6">
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Sáng tác • 15/07/2023
-              </p>
-              <h3
-                class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
-              >
-                <a
-                  class="hover:text-primary dark:hover:text-gray-300 transition-colors"
-                  href="#"
-                  >Bí quyết để viết một đoạn điệp khúc bắt tai</a
-                >
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
-              >
-                Học cách tạo ra những giai điệu điệp khúc không thể quên, từ cấu
-                trúc hợp âm đến lựa chọn từ ngữ.
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-white dark:bg-zinc-800/50 rounded-lg overflow-hidden group opacity-0 fade-in fade-in-2 shadow-sm border border-gray-100 dark:border-gray-800"
-          >
-            <a href="#">
-              <img
-                alt="Một cây đàn guitar acoustic đặt trên ghế"
-                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFvZOuG2vLzxGBdJ9Z2Mhl0Lm78PkKiwoE30P7unoIayTLTSc7YU11cBrSWRPO5An1VF7KwFanYcuYHQkmyPuGu3RrvgESQ0rMov-_yazabX70vUghedayIzdVMhzxIaL_8KzWcP2kDyN9jeuP2wPh-cT75OCsix-ohyaTu-t6b0GcUSDo89GOQV0gmLsFR59rAAXWlaaDbbuHb8PjIRSBntL95zIWgSlR4rMcFvGRao2PUIEPkq7PZvMZWPaESDXevXy9Kpy6k0E"
-              />
-            </a>
-            <div class="p-6">
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Nhạc cụ • 12/07/2023
-              </p>
-              <h3
-                class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
-              >
-                <a
-                  class="hover:text-primary dark:hover:text-gray-300 transition-colors"
-                  href="#"
-                  >Hướng dẫn chọn đàn guitar cho người mới bắt đầu</a
-                >
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
-              >
-                Phân biệt giữa guitar classic và acoustic, và tìm ra cây đàn phù
-                hợp nhất với phong cách của bạn.
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-white dark:bg-zinc-800/50 rounded-lg overflow-hidden group opacity-0 fade-in fade-in-3 shadow-sm border border-gray-100 dark:border-gray-800"
-          >
-            <a href="#">
-              <img
-                alt="Một DJ đang điều chỉnh bàn mix nhạc"
-                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIGiIsIbU-R38DBJimOAXUpj6gLFG-n1YVA-ZBhh1o-bHbVrIKWLPXTFNT0FR9Jf9QuoJMh4Db_tRnXP53lc_pVbrXGMHII-334pCtu4kALxiOEaVwtmDyiQ1wOj4LJWbSciuny9lcIxPpGKPz3R7f4A8GeAzfqLzLUOMfi9gjynZPg_GREos3bEGzL5gtnjTwY_fGAhVrLo99JGBqnVnEMuz1M6wAZnf6maG5CSx0PwgBa71nIS-XDkHKPYgUCVUkpAYt_UqjVto"
-              />
-            </a>
-            <div class="p-6">
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Sản xuất • 10/07/2023
-              </p>
-              <h3
-                class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
-              >
-                <a
-                  class="hover:text-primary dark:hover:text-gray-300 transition-colors"
-                  href="#"
-                  >5 phần mềm sản xuất âm nhạc miễn phí tốt nhất</a
-                >
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
-              >
-                Bạn không cần chi nhiều tiền để bắt đầu. Khám phá các công cụ
-                mạnh mẽ để khởi đầu sự nghiệp âm nhạc.
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-white dark:bg-zinc-800/50 rounded-lg overflow-hidden group opacity-0 fade-in fade-in-4 shadow-sm border border-gray-100 dark:border-gray-800"
-          >
-            <a href="#">
-              <img
-                alt="Đám đông tại một buổi hòa nhạc"
-                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmgUbtLSHZrSPZqSpZ6sy6gdSC8_TVgWbkOhPq3J7FfEk6iIAgbzB7bKVq24NBWQE2uGXKZiGzvQWWbUnyCTeKz6lMOhuPs2_KZ9KTkKhuTrrIZUSvRztT3ywneKwq_HnUJeQ_UBhFu60ybX8MEzeeCg880bxvnHRTymwqTiGu_yI96RcwKnAj1E3mUdTOgqDPoa4YdxYZhkTFCAdClkOvtrUn176DQitWsH8Ht3MIvwU9Qqt14fpV4moykOPZWs6hcYbP5vczG18"
-              />
-            </a>
-            <div class="p-6">
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Lịch sử • 08/07/2023
-              </p>
-              <h3
-                class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
-              >
-                <a
-                  class="hover:text-primary dark:hover:text-gray-300 transition-colors"
-                  href="#"
-                  >Sự trỗi dậy của nhạc điện tử: Từ Kraftwerk đến nay</a
-                >
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
-              >
-                Một hành trình qua lịch sử của âm nhạc điện tử và những nghệ sĩ
-                đã định hình nên thể loại này.
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-white dark:bg-zinc-800/50 rounded-lg overflow-hidden group opacity-0 fade-in fade-in-5 shadow-sm border border-gray-100 dark:border-gray-800"
-          >
-            <a href="#">
-              <img
-                alt="Một người đang chơi piano"
-                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR76h6WdwKTPtJTpZQoEV7AhaFm0mf94isluW7aQA0jkMJJxR90R8PReRwCmBetR6Q46C6J6UUbn30PKBjNe4W59vPinGDeVguiblGrOncSCIOrwkPyvh_mDWjfVrX6zgnelf1e_z3ra1TH6dBvvb7zUhTNiXeAuF_jgrsQSlihkRCTNhlZrQfXrPKghFWy5JdU6QjAo0g9be0QU9Aiqc1ZDrAeY1pdCiSbdyKgHKvcq02Z4CtzuSAaNhcGw4A5DsxSSmfoUyV9RM"
-              />
-            </a>
-            <div class="p-6">
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Học tập • 05/07/2023
-              </p>
-              <h3
-                class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
-              >
-                <a
-                  class="hover:text-primary dark:hover:text-gray-300 transition-colors"
-                  href="#"
-                  >Luyện tai nghe nhạc: Các bài tập hiệu quả</a
-                >
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
-              >
-                Nâng cao khả năng cảm thụ âm nhạc của bạn với những bài tập đơn
-                giản để nhận biết nốt và hợp âm.
-              </p>
-            </div>
-          </div>
-          <div
-            class="bg-white dark:bg-zinc-800/50 rounded-lg overflow-hidden group opacity-0 fade-in fade-in-6 shadow-sm border border-gray-100 dark:border-gray-800"
-          >
-            <a href="#">
-              <img
-                alt="Microphone trong phòng thu"
-                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuASl8ue71UROe-e_SJKHay474HK9ncnkQWfblntfKzgnrj14MkKU2J7-Tr5H-q0HmNhIP1TZUrgSMyqiidJzkyiWEMJCa5mFsbGD3nWz58sqCcKQnOqPdRi3TSxh7s55XMlZ20zld0c8WQLbgwfPywGoDBkNrLwmLWO8sVmpGkzBSQks9beqz_6x52KT_XgGuGR90Qli4MtMN9NmIiLLGWDZjomiF4GI4eqfYnVgTbv1k_hzNY3qgNjoq9vVHb0t-E4KaT8QiGcskc"
-              />
-            </a>
-            <div class="p-6">
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Kỹ thuật • 02/07/2023
-              </p>
-              <h3
-                class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
-              >
-                <a
-                  class="hover:text-primary dark:hover:text-gray-300 transition-colors"
-                  href="#"
-                  >Thiết lập phòng thu tại nhà với ngân sách thấp</a
-                >
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
-              >
-                Những thiết bị cần thiết và mẹo tối ưu không gian để bạn có thể
-                bắt đầu thu âm chuyên nghiệp.
-              </p>
-            </div>
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFvZOuG2vLzxGBdJ9Z2Mhl0Lm78PkKiwoE30P7unoIayTLTSc7YU11cBrSWRPO5An1VF7KwFanYcuYHQkmyPuGu3RrvgESQ0rMov-_yazabX70vUghedayIzdVMhzxIaL_8KzWcP2kDyN9jeuP2wPh-cT75OCsix-ohyaTu-t6b0GcUSDo89GOQV0gmLsFR59rAAXWlaaDbbuHb8PjIRSBntL95zIWgSlR4rMcFvGRao2PUIEPkq7PZvMZWPaESDXevXy9Kpy6k0E" alt="Blog 2" class="blog-img">
+          <div class="blog-content">
+            <p class="blog-date">12/07/2023</p>
+            <h3 class="blog-title"><a href="#">Hướng dẫn chọn đàn guitar cho người mới bắt đầu</a></h3>
+            <p>Phân biệt giữa guitar classic và acoustic.</p>
           </div>
         </div>
-        <div class="mt-16 flex justify-center items-center space-x-2">
-          <a
-            class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            href="#"
-            >Previous</a
-          >
-          <a
-            class="px-4 py-2 rounded-md bg-primary text-white text-sm font-medium"
-            href="#"
-            >1</a
-          >
-          <a
-            class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors"
-            href="#"
-            >2</a
-          >
-          <a
-            class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors"
-            href="#"
-            >3</a
-          >
-          <span class="text-gray-500 dark:text-gray-400">...</span>
-          <a
-            class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors"
-            href="#"
-            >10</a
-          >
-          <a
-            class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors"
-            href="#"
-            >Next</a
-          >
-        </div>
-      </main>
-      <footer class="border-t border-gray-200 dark:border-gray-700 mt-16">
-        <div class="py-12 bg-gray-50 dark:bg-zinc-900">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
-              Đăng ký nhận bản tin
-            </h3>
-            <p class="mt-2 text-gray-600 dark:text-gray-400">
-              Không bỏ lỡ các bài viết mới, ưu đãi và tin tức từ chúng tôi.
-            </p>
-            <form class="mt-6 max-w-md mx-auto flex">
-              <input
-                class="flex-grow rounded-l-md border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:ring-primary focus:border-primary px-4 py-2"
-                placeholder="Nhập email của bạn"
-                type="email"
-              />
-              <button
-                class="bg-primary text-white px-6 py-2.5 rounded-r-md font-semibold hover:bg-opacity-90 transition-colors"
-                type="submit"
-              >
-                Đăng ký
-              </button>
-            </form>
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIGiIsIbU-R38DBJimOAXUpj6gLFG-n1YVA-ZBhh1o-bHbVrIKWLPXTFNT0FR9Jf9QuoJMh4Db_tRnXP53lc_pVbrXGMHII-334pCtu4kALxiOEaVwtmDyiQ1wOj4LJWbSciuny9lcIxPpGKPz3R7f4A8GeAzfqLzLUOMfi9gjynZPg_GREos3bEGzL5gtnjTwY_fGAhVrLo99JGBqnVnEMuz1M6wAZnf6maG5CSx0PwgBa71nIS-XDkHKPYgUCVUkpAYt_UqjVto" alt="Blog 3" class="blog-img">
+          <div class="blog-content">
+            <p class="blog-date">10/07/2023</p>
+            <h3 class="blog-title"><a href="#">5 phần mềm sản xuất âm nhạc miễn phí tốt nhất</a></h3>
+            <p>Khám phá các công cụ mạnh mẽ để khởi đầu sự nghiệp âm nhạc.</p>
           </div>
         </div>
-        <div class="bg-background-light dark:bg-background-dark">
-          <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0"
-          >
-            <div class="flex-1 text-center sm:text-left">
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                © 2024 Harmony. All Rights Reserved.
-              </p>
-              <div class="mt-4 flex space-x-6 justify-center sm:justify-start">
-                <a
-                  class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Terms</a
-                >
-                <a
-                  class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Privacy</a
-                >
-                <a
-                  class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Cookies</a
-                >
-              </div>
-            </div>
-            <div class="flex-1 flex justify-center sm:justify-end">
-              <div class="flex items-center space-x-4">
-                <a
-                  class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white"
-                  href="#"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96s4.46 9.96 9.96 9.96c5.5 0 9.96-4.46 9.96-9.96S17.5 2.04 12 2.04zm3.93 6.22h-1.39c-.58 0-.7.28-.7.69v.94h2.06l-.27 2.09h-1.79v5.38h-2.18v-5.38h-1.81V9.94h1.81v-.77c0-1.8 1.1-2.79 2.71-2.79.77 0 1.43.06 1.62.08v1.86z"
-                    ></path>
-                  </svg>
-                </a>
-                <a
-                  class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white"
-                  href="#"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M22.46 6c-.8.35-1.65.58-2.5.68.9-.54 1.6-1.4 1.93-2.43-.85.5-1.8.87-2.82 1.07C18.25 4.5 17.1 4 15.82 4c-2.42 0-4.38 1.97-4.38 4.38 0 .34.04.68.12.99-3.64-.18-6.86-1.92-9.02-4.57-.38.65-.6 1.4-.6 2.2 0 1.5.76 2.84 1.94 3.62-.7-.02-1.36-.2-1.93-.53v.05c0 2.1 1.5 3.86 3.48 4.25-.36.1-.74.15-1.14.15-.28 0-.55-.03-.81-.08.55 1.72 2.15 2.97 4.04 3-1.48 1.16-3.36 1.85-5.4 1.85-.35 0-.7-.02-1.04-.06 1.93 1.24 4.22 1.96 6.66 1.96 7.9 0 12.2-6.54 12.2-12.2 0-.18 0-.37-.01-.55.84-.6 1.56-1.36 2.14-2.23z"
-                    ></path>
-                  </svg>
-                </a>
-                <a
-                  class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white"
-                  href="#"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96s4.46 9.96 9.96 9.96 9.96-4.46 9.96-9.96S17.5 2.04 12 2.04zm4.73 6.94c0 .13-.01.26-.03.39-.9 3.1-3.4 6.64-7.85 6.64-1.56 0-3.01-.46-4.23-1.24.22.03.43.04.66.04 1.3 0 2.49-.44 3.44-1.18-.94-.02-1.73-.64-2-1.49.13.02.26.04.4.04.2 0 .39-.03.57-.08-1-.2-1.73-1.07-1.73-2.1v-.03c.3.16.63.26.98.27-.58-.39-.96-1.05-.96-1.79 0-.4.1-.77.29-1.11.96 1.18 2.39 1.96 4.02 2.04-.07-.15-.1-.32-.1-.49 0-1.18.96-2.14 2.14-2.14.62 0 1.17.26 1.56.68.49-.1.95-.27 1.36-.52-.16.5-.5.93-.94 1.2.43-.05.85-.17 1.24-.34-.29.42-.65.78-1.07 1.08z"
-                    ></path>
-                  </svg>
-                </a>
-                <a
-                  class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white"
-                  href="#"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9c0-.41.34-.75.75-.75s.75.34.75.75v9c0 .41-.34.75-.75.75s-.75-.34-.75-.75zM12 9c-.83 0-1.5-.67-1.5-1.5S11.17 6 12 6s1.5.67 1.5 1.5S12.83 9 12 9z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h3>Harmony</h3>
+          <p>Cửa hàng nhạc cụ cho mọi tâm hồn yêu âm nhạc.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Cửa hàng</h4>
+          <ul>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Bộ sưu tập</a></li>
+            <li><a href="#">Blog âm nhạc</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <ul>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Theo dõi chúng tôi</h4>
+          <div class="flex" style="gap: 15px;">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+      <div class="text-center" style="margin-top: 40px; color: #888; font-size: 0.9rem;">
+        <p>© 2024 Harmony. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,0 +1,451 @@
+/* --- CSS Reset & Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Default font */
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Layout Utilities --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+  .grid-2-cols, .grid-3-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+
+/* --- Components --- */
+
+/* Header & Nav */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  font-weight: 500;
+  color: #555;
+}
+
+nav a:hover, nav a.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.header-icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #111;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+/* Inputs */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #111;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  display: none;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.form-input.invalid {
+  border-color: red;
+}
+
+.form-input.invalid + .error-message {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background-color: #f1f1f1;
+  padding: 40px 0;
+  margin-top: 40px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-col h3, .footer-col h4 {
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: #666;
+}
+
+.footer-col a:hover {
+  color: #111;
+}
+
+/* --- Page Specific Styles --- */
+
+/* HOME: Banner Slider */
+.banner-section {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  object-fit: cover; /* Ensures image covers area without distortion */
+  object-position: center; /* Centers the image */
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center content */
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for readability */
+  max-width: 800px;
+  text-align: center; /* Center text */
+  width: 90%;
+  z-index: 10; /* Ensure it's above the slider images */
+  pointer-events: none; /* Allow clicks to pass through if needed, though button needs clicks */
+}
+
+.banner-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.banner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.banner-content .btn {
+  pointer-events: auto; /* Re-enable clicks for the button */
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* ABOUT: Hover Scale */
+.about-section {
+  padding: 40px 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  overflow: hidden; /* Important for scale effect */
+  border-radius: 8px;
+}
+
+.about-image img {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.1); /* Hover scale effect */
+}
+
+/* PRODUCT: Grid & Hover Price */
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  color: #111;
+  font-weight: bold;
+  font-size: 1.1rem;
+  
+  /* Requirement: Hover displays price. 
+     Interpretation: Price might be hidden or styled differently. 
+     Let's make it appear/slide up or just be visible. 
+     The prompt says "Hover hiển thị giá" (Hover shows price).
+     So let's hide it by default. */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  height: 0; /* To avoid taking space when hidden if desired, or just opacity */
+}
+
+.product-card:hover .product-price {
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
+}
+
+/* BLOG: FadeIn */
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  opacity: 0; /* Hidden initially for FadeIn */
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.blog-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-date {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.blog-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.blog-title a:hover {
+  color: #555;
+}
+
+/* CONTACT: Form */
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 100px;
+}

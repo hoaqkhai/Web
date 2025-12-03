@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Trang chủ - Cửa hàng Nhạc cụ</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
@@ -13,848 +12,160 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#111827", // A dark, modern primary color for the music store theme
-              "background-light": "#ffffff",
-              "background-dark": "#121212",
-            },
-            fontFamily: {
-              display: ["Roboto", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      /* Global Slider Styles */
-      .slider {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
-      .slide {
-        min-width: 100%;
-        box-sizing: border-box;
-      }
-      .slider-container {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      /* Product Slider Specific Styles */
-      .product-grid {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
-      .product-slider-container {
-        overflow: hidden;
-        /* Padding is added here to accommodate buttons, making sure content is centered */
-        padding: 0 40px;
-      }
-      /* Define product item widths for responsiveness when in a flex/slider container */
-      .product-item {
-        /* Mobile: 100% width, showing 1 item */
-        min-width: 100%;
-      }
-      @media (min-width: 640px) {
-        /* sm breakpoint */
-        /* Tablet: 50% width, showing 2 items */
-        .product-item {
-          min-width: 50%;
-        }
-      }
-      @media (min-width: 768px) {
-        /* md breakpoint */
-        /* Desktop: 33.33% width, showing 3 items */
-        .product-item {
-          min-width: 33.333333%;
-        }
-      }
-      @media (min-width: 1024px) {
-        /* lg breakpoint */
-        /* Large Desktop: 25% width, showing 4 items */
-        .product-item {
-          min-width: 25%;
-        }
-      }
-      /* Add padding/gap using Tailwind's space-x-8 on the .product-grid element */
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
   </head>
-  <body
-    class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200"
-  >
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <header class="py-6 border-b border-gray-200 dark:border-gray-800">
-        <div class="flex justify-between items-center">
-          <h1
-            class="text-2xl font-bold text-gray-900 dark:text-white tracking-wider"
-          >
-            Harmony
-          </h1>
-          <nav class="hidden md:flex items-center space-x-8">
-            <a
-              class="text-sm font-medium text-primary dark:text-white border-b-2 border-primary dark:border-white pb-1"
-              href="/index.html"
-              >Home</a
-            >
-            <a
-              class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
-              href="/about.html"
-              >Giới thiệu</a
-            >
-            <a
-              class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
-              href="/product.html"
-              >Sản phẩm</a
-            >
-            <a
-              class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
-              href="/blog.html"
-              >Blog âm nhạc</a
-            >
-            <a
-              class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors"
-              href="/contact.html"
-              >Liên hệ</a
-            >
-          </nav>
-          <div class="flex items-center space-x-4">
-            <button
-              class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white"
-            >
-              <span class="material-icons">search</span>
-            </button>
-            <button
-              class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white"
-            >
-              <span class="material-icons">person_outline</span>
-            </button>
-            <button
-              class="relative text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white"
-            >
-              <span class="material-icons">shopping_bag</span>
-              <span
-                class="absolute -top-1 -right-1.5 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center"
-                >0</span
-              >
-            </button>
-            <button class="md:hidden text-gray-600 dark:text-gray-300">
-              <span class="material-icons">menu</span>
-            </button>
-          </div>
+  <body>
+    <header>
+      <div class="container flex justify-between items-center">
+        <h1 class="logo">Harmony</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="product.html">Sản phẩm</a></li>
+            <li><a href="blog.html">Blog âm nhạc</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+        <div class="header-icons flex items-center">
+          <button><span class="material-icons">search</span></button>
+          <button><span class="material-icons">person_outline</span></button>
+          <button><span class="material-icons">shopping_bag</span></button>
         </div>
-      </header>
-      <main>
-        <section class="py-12 md:py-20">
-          <!-- BANNER SLIDER (Existing) -->
-          <div class="slider-container rounded-lg" id="banner-slider-container">
-            <div class="slider" id="banner-slider">
-              <div class="slide">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg"
-                >
-                  <div class="order-2 md:order-1 text-center md:text-left">
-                    <h2
-                      class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
-                    >
-                      ULTIMATE
-                    </h2>
-                    <h3
-                      class="text-4xl md:text-6xl font-bold text-primary dark:text-gray-300 leading-tight mb-4"
-                    >
-                      SALE
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
-                      Khám phá những cây đàn guitar acoustic tuyệt vời với âm
-                      thanh đỉnh cao.
-                    </p>
-                    <a
-                      class="inline-block bg-primary text-white py-3 px-8 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
-                      href="#"
-                      >Mua Ngay</a
-                    >
-                  </div>
-                  <div class="order-1 md:order-2">
-                    <img
-                      alt="A collection of stylish acoustic and electric guitars"
-                      class="w-full h-auto object-cover rounded-lg"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvh6SQnw3aAk6Uqy7Lqq5w5dFR4O2g4O2iTMJleWJTp6_tuMzJa5frGk05MGe1sNJE9lcGCOHQ3FKvb388AqgFb9FP0-iMQrNTntmOPAOAiaH7ahsLZ8JJOdTEmLoVIc-WqfIpTUKAlpiOfJOI0WlWVZTb5s6-N6vWChAE26x_EpkQPxp4DZZzz-Tq7QZw61BtskkAz6rqrLaxV2cQzHIApjtyGYs1e41p1tgWeOtYeYHrHkyLnPoZVpMrtZgi2s7EHyuuIFD_3Os"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="slide">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gray-100 dark:bg-gray-800 p-8 rounded-lg"
-                >
-                  <div class="order-2 md:order-1 text-center md:text-left">
-                    <h2
-                      class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
-                    >
-                      PIANO
-                    </h2>
-                    <h3
-                      class="text-4xl md:text-6xl font-bold text-primary dark:text-gray-300 leading-tight mb-4"
-                    >
-                      COLLECTION
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
-                      Cảm nhận sự tinh tế trong từng phím đàn với bộ sưu tập
-                      piano mới nhất.
-                    </p>
-                    <a
-                      class="inline-block bg-primary text-white py-3 px-8 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
-                      href="#"
-                      >Khám Phá</a
-                    >
-                  </div>
-                  <div class="order-1 md:order-2">
-                    <img
-                      alt="A beautiful grand piano in a well-lit room"
-                      class="w-full h-auto object-cover rounded-lg"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhWSs_WfeOOSANtqYntB4Dbk888nYD86CJjdWWZbDDLFQ0UoSlXrWg-YWEO5g-M_gV6yn4DtS_Ho3YDiZKwtU4duqr8Uw5WkbWVOWkGysiSD0xdl-jU5cZhY5qp9uiNy7HAuTK93Kh3CRf__0qyhbvQ5taKYWjJXT6GSTTsFq9Pj5SpVALO8V2GabhyEETMk6g3onkOAt7Tuttmo_xuHUF3hOKDKIjoOLAs674qL8DsDEL591VWzC34Ga8aPFLWGx7Py8BX7LyXzY"
-                    />
-                  </div>
-                </div>
-              </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Banner Slider -->
+      <section class="banner-section">
+        <div class="slider-container" id="banner-slider-container">
+          <div class="slider" id="banner-slider">
+            <div class="slide">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvh6SQnw3aAk6Uqy7Lqq5w5dFR4O2g4O2iTMJleWJTp6_tuMzJa5frGk05MGe1sNJE9lcGCOHQ3FKvb388AqgFb9FP0-iMQrNTntmOPAOAiaH7ahsLZ8JJOdTEmLoVIc-WqfIpTUKAlpiOfJOI0WlWVZTb5s6-N6vWChAE26x_EpkQPxp4DZZzz-Tq7QZw61BtskkAz6rqrLaxV2cQzHIApjtyGYs1e41p1tgWeOtYeYHrHkyLnPoZVpMrtZgi2s7EHyuuIFD_3Os" alt="Guitar Banner">
             </div>
-            <button
-              class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-black/50 p-2 rounded-full text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-black transition-colors"
-              id="banner-prevBtn"
-            >
-              <span class="material-icons">chevron_left</span>
-            </button>
-            <button
-              class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-black/50 p-2 rounded-full text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-black transition-colors"
-              id="banner-nextBtn"
-            >
-              <span class="material-icons">chevron_right</span>
-            </button>
-          </div>
-        </section>
-        <section class="py-8">
-          <div class="flex justify-around items-center gap-4 flex-wrap">
-            <img
-              alt="Fender logo"
-              class="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert transition-all"
-              src="https://cdn.freebiesupply.com/logos/large/2x/fender-1-logo-png-transparent.png"
-            />
-            <img
-              alt="Gibson logo"
-              class="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert transition-all"
-              src="https://cdn.freebiesupply.com/logos/large/2x/gibson-1-logo-png-transparent.png"
-            />
-            <img
-              alt="Yamaha logo"
-              class="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert transition-all"
-              src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154895.png"
-            />
-            <img
-              alt="Roland logo"
-              class="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert transition-all"
-              src="https://toppng.com/uploads/preview/roland-eps-vector-logo-free-11574049324jbo1zghfns.png"
-            />
-            <img
-              alt="Ibanez logo"
-              class="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert transition-all"
-              src="https://images.seeklogo.com/logo-png/48/1/ibanez-logo-png_seeklogo-483276.png"
-            />
-          </div>
-        </section>
-        <section class="py-12 md:py-20">
-          <h2
-            class="text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white"
-          >
-            Sản Phẩm Mới
-          </h2>
-          <!-- PRODUCT SLIDER -->
-          <div class="relative product-slider-container">
-            <div class="product-grid space-x-8">
-              <!-- Product Item 1: Fender FA-125CE -->
-              <div class="product-item group flex-shrink-0">
-                <div
-                  class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 relative"
-                >
-                  <img
-                    alt="Acoustic guitar with a sunburst finish"
-                    class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNSy33k2f50fg4W3Q_bg6dpQEEIxTsM_qZZtdmucCMBJy5RDS36qqhO0yKUtonHS4orsJEz5Yq_cf453W2tC7Cq2RGBHzEcY0yHAtDPNF5fAktfx_r6G3-eLBbi2VBeQb75yZ7FzTe5dlbnXSLDiGQw6aNcBn93ghOqXK4gXJia7roudwJbZQu5rnNwlO2K6MZ5am1yJXVEPnhVO3jnlDFe6msJ4oW-tqrOgjstKq6TQYUwCAN9Q6Bv9qjpevtHHfI7_Qoae38U4k"
-                  />
-                  <div
-                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >favorite_border</span
-                      >
-                    </button>
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >shopping_bag</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                  Fender FA-125CE
-                </h3>
-                <p class="text-primary dark:text-gray-300 font-bold">
-                  6,500,000₫
-                </p>
-              </div>
-              <!-- Product Item 2: Yamaha YSV104 -->
-              <div class="product-item group flex-shrink-0">
-                <div
-                  class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 relative"
-                >
-                  <img
-                    alt="A classic violin on a dark background"
-                    class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxt5wThadA_WCT8-g3iP1OY02hK6nh_Yl9YZXHVhRqSk8OrTtYss65n84mlWnreNMHD8FYAh5FvcssN6tqbDQVB0crhedQ0gMiv1pfByjw7ak-gHB0zaOiKinSu-4Sw4bH6z9rUHczF4LQY7HWw9tgXjI6ynY6wqUoLl_-tAHK4ogprnYgUT_ndUWGwkwRbE5xZ4a5LmqhSCJD5C1hB9cB57izkQjHOLz4dKbdlyxt4jzR1dx7S8KRR863EjnmeJKiTA6GUwMGYcY"
-                  />
-                  <div
-                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >favorite_border</span
-                      >
-                    </button>
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >shopping_bag</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                  Yamaha YSV104
-                </h3>
-                <p class="text-primary dark:text-gray-300 font-bold">
-                  25,000,000₫
-                </p>
-              </div>
-              <!-- Product Item 3: Roland FP-30X -->
-              <div class="product-item group flex-shrink-0">
-                <div
-                  class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 relative"
-                >
-                  <img
-                    alt="An 88-key digital piano"
-                    class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxAPe3_YMxL_I_B4NmIwzcCn92xB3Qrn6DR_EGPTd9Cvm4MCZCoH7vgAaAdkFlPGkdRlLnhYYl3R4CMKwKuZxcDt2SUQ6RGvGs6s1PqfkSNL_7ar6Hd0t7B_DazWeRZ-QtkxrMgCIqJ0Ak_NxUq-9Qh9iu-W73u9_-uoBpqD1C31W2Rqy2FlZK4b9RAbRnVGYIUuHl9pIMV5IIRYLE2Ox2UAyMyaEonzuL155GgS8Q9cl8hk9FQ0semqnoAYMxk3eaFY7vWytWUVQ"
-                  />
-                  <div
-                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >favorite_border</span
-                      >
-                    </button>
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >shopping_bag</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                  Roland FP-30X
-                </h3>
-                <p class="text-primary dark:text-gray-300 font-bold">
-                  18,900,000₫
-                </p>
-              </div>
-              <!-- Product Item 4: Alesis Nitro Mesh -->
-              <div class="product-item group flex-shrink-0">
-                <div
-                  class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 relative"
-                >
-                  <img
-                    alt="A modern electronic drum kit"
-                    class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvmCT5f4D5YZJ4Z_byHcIT5yZ2jCEtyVS7Y3OyER47WVMpc9P1lPKwSf2Q14mfqzdvchiwfQth9Gu-o7JsdXfSqksmrH-cqnoOSlE8RVSTJnnhsKiDf9W6-RBrYVjK8HrmSDOiGNd34C7bVrUh537iCwgqzcSPzQ8E8BlRc7fY2kwn2963AnubgvsO8gRD9YBW-yyuvbjj8T2Eh8-0q3coVRFnRvPzUHYZBO_2CJGWEPm2trHimoOI_vW_gk24v2fvfntaFNsfa9s"
-                  />
-                  <div
-                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >favorite_border</span
-                      >
-                    </button>
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >shopping_bag</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                  Alesis Nitro Mesh
-                </h3>
-                <p class="text-primary dark:text-gray-300 font-bold">
-                  9,800,000₫
-                </p>
-              </div>
-              <!-- Product 5: Gibson Les Paul Classic -->
-              <div class="product-item group flex-shrink-0">
-                <div
-                  class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 relative"
-                >
-                  <img
-                    alt="Electric guitar with a red finish"
-                    class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                    src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  />
-                  <div
-                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >favorite_border</span
-                      >
-                    </button>
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >shopping_bag</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                  Gibson Les Paul Classic
-                </h3>
-                <p class="text-primary dark:text-gray-300 font-bold">
-                  75,000,000₫
-                </p>
-              </div>
-              <!-- Product 6: Yamaha Saxophone -->
-              <div class="product-item group flex-shrink-0">
-                <div
-                  class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 relative"
-                >
-                  <img
-                    alt="Saxophone"
-                    class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                    src="https://images.unsplash.com/photo-1573871666450-148c2ac06913?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  />
-                  <div
-                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >favorite_border</span
-                      >
-                    </button>
-                    <button
-                      class="bg-white dark:bg-gray-700 p-2 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-600"
-                    >
-                      <span
-                        class="material-icons text-base text-gray-700 dark:text-gray-200"
-                        >shopping_bag</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                  Yamaha YAS-280 Saxophone
-                </h3>
-                <p class="text-primary dark:text-gray-300 font-bold">
-                  45,000,000₫
-                </p>
-              </div>
-            </div>
-            <!-- Product Navigation Buttons -->
-            <button
-              class="absolute -left-1 sm:left-0 top-1/2 -translate-y-1/2 bg-white/75 dark:bg-black/75 p-2 rounded-full text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-black transition-colors shadow-lg z-10"
-              id="product-prevBtn"
-            >
-              <span class="material-icons">chevron_left</span>
-            </button>
-            <button
-              class="absolute -right-1 sm:right-0 top-1/2 -translate-y-1/2 bg-white/75 dark:bg-black/75 p-2 rounded-full text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-black transition-colors shadow-lg z-10"
-              id="product-nextBtn"
-            >
-              <span class="material-icons">chevron_right</span>
-            </button>
-          </div>
-          <!-- END PRODUCT SLIDER -->
-        </section>
-        <section class="py-12 md:py-20 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-8">
-            <div>
-              <img
-                alt="A person playing an electric guitar with passion"
-                class="rounded-lg shadow-lg w-full"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuApUJw0Y8pV6uVDbE1g0EVNApLV0oQmqKY0EgJXZWZ-78lS10Rc1QzcCbFpsIll36FL2fn7EbI3bpOS0n99G1yMXh5XhnBXJvagEWm3wRvXPO8XM_cpcDkhchMcw3uIxDmSKXA-dBpKju56EHcER5VPV2AXrxLq6tREqfrxZsyIME5NxA5THSAJqJRCe1iOzCRydE12ZhKrPXu5QGmvDiqQ15YzrH94WcpfdwMDsh0pimeTH77TUim4bUXRVdQ0KZlXNJDsZ4QSFBE"
-              />
-            </div>
-            <div class="text-center md:text-left">
-              <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-                Dòng Guitar Điện
-              </h2>
-              <p class="text-gray-600 dark:text-gray-400 mb-6">
-                Trải nghiệm âm thanh mạnh mẽ và thiết kế đột phá từ các thương
-                hiệu guitar điện hàng đầu. Sẵn sàng khuấy động sân khấu của bạn.
-              </p>
-              <a
-                class="inline-block bg-primary text-white py-3 px-8 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
-                href="#"
-                >Xem Bộ Sưu Tập</a
-              >
+            <div class="slide">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhWSs_WfeOOSANtqYntB4Dbk888nYD86CJjdWWZbDDLFQ0UoSlXrWg-YWEO5g-M_gV6yn4DtS_Ho3YDiZKwtU4duqr8Uw5WkbWVOWkGysiSD0xdl-jU5cZhY5qp9uiNy7HAuTK93Kh3CRf__0qyhbvQ5taKYWjJXT6GSTTsFq9Pj5SpVALO8V2GabhyEETMk6g3onkOAt7Tuttmo_xuHUF3hOKDKIjoOLAs674qL8DsDEL591VWzC34Ga8aPFLWGx7Py8BX7LyXzY" alt="Piano Banner">
             </div>
           </div>
-        </section>
-        <section class="py-12 md:py-20">
-          <div class="text-center max-w-2xl mx-auto">
-            <h2 class="text-3xl font-bold mb-3 text-gray-900 dark:text-white">
-              Đăng Ký Nhận Tin Tức
-            </h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-8">
-              Nhận thông tin cập nhật về sản phẩm mới, ưu đãi đặc biệt và các sự
-              kiện âm nhạc.
-            </p>
-            <form class="flex flex-col sm:flex-row max-w-md mx-auto gap-3">
-              <input
-                class="flex-grow w-full px-4 py-3 rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:ring-primary focus:border-primary dark:text-white"
-                placeholder="Nhập email của bạn"
-                type="email"
-              />
-              <button
-                class="bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors whitespace-nowrap"
-                type="submit"
-              >
-                Đăng Ký
-              </button>
-            </form>
+          
+          <!-- Static Banner Content -->
+          <div class="banner-content">
+            <h2>ULTIMATE SALE</h2>
+            <p>Khám phá những cây đàn guitar acoustic tuyệt vời.</p>
+            <a href="#" class="btn">Mua Ngay</a>
           </div>
-        </section>
-      </main>
-      <footer class="py-12 border-t border-gray-200 dark:border-gray-800">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-              Harmony
-            </h3>
-            <p class="text-gray-500 dark:text-gray-400 text-sm">
-              Cửa hàng nhạc cụ cho mọi tâm hồn yêu âm nhạc.
-            </p>
+
+          <button class="slider-btn prev-btn" id="banner-prevBtn">
+            <span class="material-icons">chevron_left</span>
+          </button>
+          <button class="slider-btn next-btn" id="banner-nextBtn">
+            <span class="material-icons">chevron_right</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Brands -->
+      <section class="container py-12">
+        <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 20px;">
+          <img src="https://cdn.freebiesupply.com/logos/large/2x/fender-1-logo-png-transparent.png" alt="Fender" style="height: 50px; opacity: 0.6;">
+          <img src="https://cdn.freebiesupply.com/logos/large/2x/gibson-1-logo-png-transparent.png" alt="Gibson" style="height: 50px; opacity: 0.6;">
+          <img src="https://images.seeklogo.com/logo-png/15/2/yamaha-logo-png_seeklogo-154895.png" alt="Yamaha" style="height: 50px; opacity: 0.6;">
+          <img src="https://toppng.com/uploads/preview/roland-eps-vector-logo-free-11574049324jbo1zghfns.png" alt="Roland" style="height: 50px; opacity: 0.6;">
+          <img src="https://images.seeklogo.com/logo-png/48/1/ibanez-logo-png_seeklogo-483276.png" alt="Ibanez" style="height: 50px; opacity: 0.6;">
+        </div>
+      </section>
+
+      <!-- New Products -->
+      <section class="container py-12">
+        <h2 class="text-center mb-8" style="font-size: 2rem;">Sản Phẩm Mới</h2>
+        <div class="grid grid-3-cols">
+          <!-- Product 1 -->
+          <div class="product-card">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNSy33k2f50fg4W3Q_bg6dpQEEIxTsM_qZZtdmucCMBJy5RDS36qqhO0yKUtonHS4orsJEz5Yq_cf453W2tC7Cq2RGBHzEcY0yHAtDPNF5fAktfx_r6G3-eLBbi2VBeQb75yZ7FzTe5dlbnXSLDiGQw6aNcBn93ghOqXK4gXJia7roudwJbZQu5rnNwlO2K6MZ5am1yJXVEPnhVO3jnlDFe6msJ4oW-tqrOgjstKq6TQYUwCAN9Q6Bv9qjpevtHHfI7_Qoae38U4k" alt="Fender FA-125CE" class="product-img">
+            <div class="product-details">
+              <h3 class="product-title">Fender FA-125CE</h3>
+              <p class="product-price">6,500,000₫</p>
+            </div>
           </div>
-          <div>
-            <h4 class="font-semibold mb-4 text-gray-800 dark:text-gray-100">
-              Cửa hàng
-            </h4>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Sản phẩm</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Bộ sưu tập</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Blog âm nhạc</a
-                >
-              </li>
-            </ul>
+          <!-- Product 2 -->
+          <div class="product-card">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxt5wThadA_WCT8-g3iP1OY02hK6nh_Yl9YZXHVhRqSk8OrTtYss65n84mlWnreNMHD8FYAh5FvcssN6tqbDQVB0crhedQ0gMiv1pfByjw7ak-gHB0zaOiKinSu-4Sw4bH6z9rUHczF4LQY7HWw9tgXjI6ynY6wqUoLl_-tAHK4ogprnYgUT_ndUWGwkwRbE5xZ4a5LmqhSCJD5C1hB9cB57izkQjHOLz4dKbdlyxt4jzR1dx7S8KRR863EjnmeJKiTA6GUwMGYcY" alt="Yamaha YSV104" class="product-img">
+            <div class="product-details">
+              <h3 class="product-title">Yamaha YSV104</h3>
+              <p class="product-price">25,000,000₫</p>
+            </div>
           </div>
-          <div>
-            <h4 class="font-semibold mb-4 text-gray-800 dark:text-gray-100">
-              Hỗ trợ
-            </h4>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Liên hệ</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Câu hỏi thường gặp</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                  href="#"
-                  >Chính sách bảo hành</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-4 text-gray-800 dark:text-gray-100">
-              Theo dõi chúng tôi
-            </h4>
-            <div class="flex space-x-4">
-              <a
-                class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                href="#"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                    fill-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                href="#"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                href="#"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M12 2.25c-2.43 0-2.784.01-3.808.06-1.064.049-1.791.218-2.427.465a4.902 4.902 0 00-1.772 1.153A4.902 4.902 0 002.84 5.65c-.247.636-.416 1.363-.465 2.427-.048 1.024-.06 1.378-.06 3.808s.012 2.784.06 3.808c.049 1.064.218 1.791.465 2.427a4.902 4.902 0 001.153 1.772A4.902 4.902 0 001.153-1.772c.247-.636.416-1.363.465-2.427.048-1.024.06-1.378.06-3.808s-.012-2.784-.06-3.808c-.049-1.064-.218-1.791-.465-2.427a4.902 4.902 0 00-1.153-1.772A4.902 4.902 0 0018.35 2.84c-.636-.247-1.363-.416-2.427-.465-1.024-.048-1.378-.06-3.808-.06zM12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm0 6a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5zm6.3-8.25a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"
-                    fill-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+          <!-- Product 3 -->
+          <div class="product-card">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxAPe3_YMxL_I_B4NmIwzcCn92xB3Qrn6DR_EGPTd9Cvm4MCZCoH7vgAaAdkFlPGkdRlLnhYYl3R4CMKwKuZxcDt2SUQ6RGvGs6s1PqfkSNL_7ar6Hd0t7B_DazWeRZ-QtkxrMgCIqJ0Ak_NxUq-9Qh9iu-W73u9_-uoBpqD1C31W2Rqy2FlZK4b9RAbRnVGYIUuHl9pIMV5IIRYLE2Ox2UAyMyaEonzuL155GgS8Q9cl8hk9FQ0semqnoAYMxk3eaFY7vWytWUVQ" alt="Roland FP-30X" class="product-img">
+            <div class="product-details">
+              <h3 class="product-title">Roland FP-30X</h3>
+              <p class="product-price">18,900,000₫</p>
             </div>
           </div>
         </div>
-        <div
-          class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400"
-        >
-          <p>© 2024 Harmony. All Rights Reserved.</p>
+      </section>
+
+      <!-- Featured Section -->
+      <section class="container py-12">
+        <div class="grid grid-2-cols items-center">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApUJw0Y8pV6uVDbE1g0EVNApLV0oQmqKY0EgJXZWZ-78lS10Rc1QzcCbFpsIll36FL2fn7EbI3bpOS0n99G1yMXh5XhnBXJvagEWm3wRvXPO8XM_cpcDkhchMcw3uIxDmSKXA-dBpKju56EHcER5VPV2AXrxLq6tREqfrxZsyIME5NxA5THSAJqJRCe1iOzCRydE12ZhKrPXu5QGmvDiqQ15YzrH94WcpfdwMDsh0pimeTH77TUim4bUXRVdQ0KZlXNJDsZ4QSFBE" alt="Electric Guitar" style="border-radius: 8px;">
+          <div style="padding: 20px;">
+            <h2 class="mb-4" style="font-size: 2.5rem;">Dòng Guitar Điện</h2>
+            <p class="mb-8" style="color: #666;">Trải nghiệm âm thanh mạnh mẽ và thiết kế đột phá từ các thương hiệu guitar điện hàng đầu.</p>
+            <a href="#" class="btn">Xem Bộ Sưu Tập</a>
+          </div>
         </div>
-      </footer>
-    </div>
-    <script>
-      $(document).ready(function () {
-        // --- BANNER SLIDER LOGIC (Existing) ---
-        let bannerCurrentIndex = 0;
-        const bannerSlides = $("#banner-slider .slide");
-        const bannerTotalSlides = bannerSlides.length;
-        let autoSlideInterval;
+      </section>
 
-        function updateBannerPosition() {
-          $("#banner-slider").css(
-            "transform",
-            `translateX(-${bannerCurrentIndex * 100}%)`
-          );
-        }
+      <!-- Newsletter -->
+      <section class="container py-12 text-center">
+        <h2 class="mb-4" style="font-size: 2rem;">Đăng Ký Nhận Tin Tức</h2>
+        <p class="mb-8" style="color: #666;">Nhận thông tin cập nhật về sản phẩm mới và ưu đãi đặc biệt.</p>
+        <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: nowrap;">
+          <input type="email" placeholder="Nhập email của bạn" class="form-input" style="margin-bottom: 0; flex: 1;">
+          <button type="submit" class="btn" style="white-space: nowrap; flex-shrink: 0;">Đăng Ký</button>
+        </form>
+      </section>
+    </main>
 
-        function showNextBannerSlide() {
-          bannerCurrentIndex = (bannerCurrentIndex + 1) % bannerTotalSlides;
-          updateBannerPosition();
-        }
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h3>Harmony</h3>
+          <p>Cửa hàng nhạc cụ cho mọi tâm hồn yêu âm nhạc.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Cửa hàng</h4>
+          <ul>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Bộ sưu tập</a></li>
+            <li><a href="#">Blog âm nhạc</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <ul>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Theo dõi chúng tôi</h4>
+          <div class="flex" style="gap: 15px;">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 40px; color: #888; font-size: 0.9rem;">
+        <p>© 2024 Harmony. All Rights Reserved.</p>
+      </div>
+    </footer>
 
-        function showPrevBannerSlide() {
-          bannerCurrentIndex =
-            (bannerCurrentIndex - 1 + bannerTotalSlides) % bannerTotalSlides;
-          updateBannerPosition();
-        }
-
-        function startAutoSlide() {
-          stopAutoSlide(); // Clear any existing interval
-          autoSlideInterval = setInterval(showNextBannerSlide, 5000);
-        }
-
-        function stopAutoSlide() {
-          clearInterval(autoSlideInterval);
-        }
-
-        $("#banner-nextBtn").click(function () {
-          stopAutoSlide();
-          showNextBannerSlide();
-          startAutoSlide();
-        });
-
-        $("#banner-prevBtn").click(function () {
-          stopAutoSlide();
-          showPrevBannerSlide();
-          startAutoSlide();
-        });
-
-        startAutoSlide();
-
-        // --- PRODUCT SLIDER LOGIC (New) ---
-        let productCurrentIndex = 0;
-        const productGrid = $(".product-grid");
-        const productItems = $(".product-item");
-        const productTotalItems = productItems.length;
-
-        // Function to calculate how many items fit in the current viewport
-        function getItemsPerPage() {
-          const width = $(window).width();
-          if (width >= 1024) return 4; // lg
-          if (width >= 768) return 3; // md
-          if (width >= 640) return 2; // sm
-          return 1; // mobile
-        }
-
-        // Function to update the slider position
-        function updateProductPosition() {
-          // Get the width of one product item, including its right margin (space-x-8 = 2rem = 32px)
-          const itemWidth = productItems.first().outerWidth(true);
-
-          // Calculate the total shift required
-          const totalShift = -productCurrentIndex * itemWidth;
-
-          // Apply the transform
-          productGrid.css("transform", `translateX(${totalShift}px)`);
-
-          // Update button visibility (optional but good practice)
-          $("#product-prevBtn").prop("disabled", productCurrentIndex === 0);
-
-          const itemsPerPage = getItemsPerPage();
-          const maxIndex = Math.max(0, productTotalItems - itemsPerPage);
-          $("#product-nextBtn").prop(
-            "disabled",
-            productCurrentIndex >= maxIndex
-          );
-        }
-
-        // Show next slide
-        function showNextProductSlide() {
-          const itemsPerPage = getItemsPerPage();
-          const maxIndex = Math.max(0, productTotalItems - itemsPerPage); // Maximum index we can show
-
-          if (productCurrentIndex < maxIndex) {
-            // Move by one item
-            productCurrentIndex++;
-            updateProductPosition();
-          }
-        }
-
-        // Show previous slide
-        function showPrevProductSlide() {
-          if (productCurrentIndex > 0) {
-            // Move back by one item
-            productCurrentIndex--;
-            updateProductPosition();
-          }
-        }
-
-        // Event Listeners for product slider
-        $("#product-nextBtn").click(showNextProductSlide);
-        $("#product-prevBtn").click(showPrevProductSlide);
-
-        // Handle window resize to reset index and position, ensuring responsiveness
-        $(window).resize(function () {
-          // Reset index to 0 on resize to prevent awkward jumps if layout changes
-          productCurrentIndex = 0;
-          updateProductPosition();
-        });
-
-        // Initialize the product slider position after the page loads
-        updateProductPosition();
-
-        // --- SCROLL ANIMATION LOGIC (Existing) ---
-        // Apply initial opacity and transform for scroll animation
-        $(
-          ".group, .md\\:grid-cols-2.gap-8.items-center, .text-center.max-w-2xl.mx-auto"
-        ).css({
-          opacity: "0",
-          transform: "translateY(20px)",
-        });
-
-        // Fade in elements on scroll
-        $(window)
-          .scroll(function () {
-            // Elements to animate: product cards (which now have class .group), electric guitar section, and newsletter section
-            $(
-              ".product-item.group, .md\\:grid-cols-2.gap-8.items-center, .text-center.max-w-2xl.mx-auto"
-            ).each(function (i) {
-              var bottom_of_object =
-                $(this).offset().top + $(this).outerHeight() / 4;
-              var bottom_of_window = $(window).scrollTop() + $(window).height();
-              if (bottom_of_window > bottom_of_object) {
-                $(this).css({
-                  opacity: "1",
-                  transform: "translateY(0)",
-                  transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-                });
-              }
-            });
-          })
-          .scroll(); // Trigger scroll on load to check initial position
-      });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
