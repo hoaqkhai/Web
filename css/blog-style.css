@@ -1,0 +1,153 @@
+/* --- Blog Page Enhancements --- */
+
+/* Blog Layout - 3 Column Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Blog Card */
+.blog-card {
+  background: var(--white);
+  border-radius: 8px; /* Slightly less rounded */
+  overflow: hidden;
+  /* box-shadow: var(--shadow-sm); removed initial shadow for cleaner look or keep subtle */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Fix for equal height if needed */
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.blog-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px; /* Rounded corners for image itself as per some modern designs, or keep container rounded */
+}
+
+/* Fix: The image in the screenshot seems to be inside the card but maybe the card itself has no visible border/bg until hover? 
+   Actually the screenshot has images fully wide. Let's keep specific card styling minimal. 
+*/
+.blog-card img {
+  border-radius: 8px; /* Adding radius to image directly to match design if they are "floating" */
+}
+
+.blog-content {
+  padding: 15px 0; /* Less padding, remove side padding if image is full width of 'column' */
+}
+
+.blog-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+  /* uppercase removed or kept? Screenshot shows "Sáng tác • 15/07/2023" normal case */
+}
+
+.blog-title {
+  font-size: 1.15rem; /* Adjusted for 3-column density */
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.blog-title a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.blog-title a:hover {
+  color: #555;
+}
+
+.blog-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-btn {
+  background: #f3f4f6; /* Light gray background */
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px; /* Rounded square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+  background: #e5e7eb;
+}
+
+.page-btn.active {
+  background: #111827; /* Dark background */
+  color: #fff;
+}
+
+.page-btn.prev, .page-btn.next {
+  width: auto;
+  padding: 0 15px;
+}
+
+/* Newsletter Section specific tweaks if needed */
+/* Assuming 'bg-gray-50' is not in style.css, let's add it here or rely on style.css update */
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+.newsletter-section {
+  text-align: center;
+  padding: 80px 0;
+  border-top: 1px solid #eee;
+}
+
+.newsletter-form input {
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 300px;
+}
+
+.newsletter-form button {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 4px; /* Match input */
+  background: #111827;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+

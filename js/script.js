@@ -82,7 +82,7 @@ $(document).ready(function() {
   function checkScroll() {
     const triggerBottom = window.innerHeight * 0.8;
     
-    $('.product-card, .feature-item, .testimonial-card, .section-heading').each(function() {
+    $('.product-card, .feature-item, .testimonial-card, .section-heading, .blog-card').each(function() {
       const top = $(this)[0].getBoundingClientRect().top;
       if (top < triggerBottom) {
         $(this).css({
@@ -94,7 +94,7 @@ $(document).ready(function() {
   }
 
   // Initial styles for animation elements
-  $('.product-card, .feature-item, .testimonial-card, .section-heading').css({
+  $('.product-card, .feature-item, .testimonial-card, .section-heading, .blog-card').css({
     'opacity': '0',
     'transform': 'translateY(30px)',
     'transition': 'all 0.6s ease-out'
@@ -102,4 +102,56 @@ $(document).ready(function() {
 
   window.addEventListener('scroll', checkScroll);
   checkScroll(); // Check on load
+
+  // --- Blog Functionality ---
+  const blogCards = $('.blog-card');
+  const categoryLinks = $('.category-link');
+  const searchInput = $('#blog-search');
+  const searchBtn = $('#search-btn');
+
+  // Category Filtering
+  categoryLinks.click(function(e) {
+    e.preventDefault();
+    
+    // Active class
+    categoryLinks.removeClass('active');
+    $(this).addClass('active');
+
+    const filter = $(this).data('filter');
+
+    blogCards.each(function() {
+      const cardCategory = $(this).data('category');
+      
+      if (filter === 'all' || cardCategory === filter) {
+        $(this).fadeIn();
+        $(this).addClass('visible');
+      } else {
+        $(this).fadeOut();
+        $(this).removeClass('visible');
+      }
+    });
+  });
+
+  // Search Functionality
+  function performSearch() {
+    const searchTerm = searchInput.val().toLowerCase();
+
+    blogCards.each(function() {
+      const title = $(this).find('.blog-title').text().toLowerCase();
+      
+      if (title.includes(searchTerm)) {
+        $(this).fadeIn();
+        $(this).addClass('visible');
+      } else {
+        $(this).fadeOut();
+        $(this).removeClass('visible');
+      }
+    });
+  }
+
+  searchBtn.click(performSearch);
+  searchInput.on('keyup', function(e) {
+    if (e.key === 'Enter') performSearch();
+    else performSearch(); // Real-time search
+  });
 });
