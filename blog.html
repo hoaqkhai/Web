@@ -3,6 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="apple-touch-icon" sizes="57x57" href="Harmoni.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="Harmoni.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="Harmoni.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="Harmoni.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="Harmoni.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="Harmoni.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="Harmoni.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="Harmoni.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Harmoni.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="Harmoni.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Harmoni.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="Harmoni.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Harmoni.ico/favicon-16x16.png">
+    <link rel="manifest" href="Harmoni.ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="Harmoni.ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <title>Blog âm nhạc</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
@@ -18,7 +35,7 @@
   <body>
     <header>
       <div class="container flex justify-between items-center">
-        <h1 class="logo">Harmony</h1>
+        <h1 class="logo"><img src="Harmoni.ico/ms-icon-310x310.png" alt="Harmony"></h1>
         <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
@@ -36,76 +53,91 @@
       </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="blog-hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title animate-fade-in">Blog Âm Nhạc</h1>
+        <p class="hero-subtitle animate-fade-in-delay">Khám phá những câu chuyện, kiến thức và cảm hứng từ thế giới âm nhạc</p>
+        
+        <!-- Search Bar -->
+        <div class="search-container animate-fade-in-delay-2">
+          <input type="text" id="blog-search" class="search-input" placeholder="Tìm kiếm bài viết...">
+          <button class="search-btn">
+            <span class="material-icons-outlined">search</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <main class="container py-12">
-      <div class="text-center mb-8">
-        <h2 class="mb-4 section-heading">Blog âm nhạc</h2>
-        <p class="section-desc">Khám phá những câu chuyện, kiến thức và cảm hứng từ thế giới âm nhạc.</p>
+      
+      <!-- Category Filter Pills -->
+      <div class="category-filter-section">
+        <div class="category-pills" id="category-pills">
+          <button class="category-pill active" data-category="all">Tất cả</button>
+          <button class="category-pill" data-category="guitar">Guitar</button>
+          <button class="category-pill" data-category="piano">Piano</button>
+          <button class="category-pill" data-category="trống">Trống</button>
+          <button class="category-pill" data-category="violin">Violin</button>
+          <button class="category-pill" data-category="saxophone">Saxophone</button>
+          <button class="category-pill" data-category="cello">Cello</button>
+          <button class="category-pill" data-category="sáo">Sáo</button>
+        </div>
       </div>
 
       <div class="blog-container">
-        <!-- Main Blog List -->
-        <div class="blog-main">
-          <div class="blog-list" id="blog-list">
-            <!-- Blog 1 -->
-            <!-- Blog 1 -->
-            <div class="blog-card" data-category="instruments">
-              <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?q=80&w=1974&auto=format&fit=crop" alt="Guitar" class="blog-img">
-              <div class="blog-content">
-                <div class="blog-meta">Guitar • 15/07/2023</div>
-                <h3 class="blog-title"><a href="#">Hướng dẫn chọn đàn guitar cho người mới bắt đầu</a></h3>
-                <p class="blog-desc">Phân biệt giữa guitar classic và acoustic, và tìm ra cây đàn phù hợp nhất với phong cách của bạn.</p>
+        <!-- Featured Slider Section -->
+        <div class="featured-section">
+          <h2 class="section-title">
+            <span class="title-icon">⭐</span>
+            Bài viết nổi bật
+          </h2>
+          
+          <div class="blog-slider-container">
+            <div class="blog-slider">
+              <div class="blog-track" id="blog-track">
+                <!-- Blog posts will be loaded here -->
               </div>
             </div>
-            <!-- Blog 2 -->
-            <div class="blog-card" data-category="instruments">
-              <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070&auto=format&fit=crop" alt="Piano" class="blog-img">
-              <div class="blog-content">
-                <div class="blog-meta">Piano • 12/07/2023</div>
-                <h3 class="blog-title"><a href="#">Lợi ích tuyệt vời của việc học Piano từ sớm</a></h3>
-                <p class="blog-desc">Khám phá cách học piano giúp phát triển tư duy, sự tập trung và khả năng sáng tạo của trẻ em.</p>
-              </div>
-            </div>
-            <!-- Blog 3 -->
-            <div class="blog-card" data-category="instruments">
-              <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=2070&auto=format&fit=crop" alt="Drums" class="blog-img">
-              <div class="blog-content">
-                <div class="blog-meta">Trống • 10/07/2023</div>
-                <h3 class="blog-title"><a href="#">Top 5 bộ trống điện tử tốt nhất năm 2024</a></h3>
-                <p class="blog-desc">Đánh giá chi tiết các bộ trống điện tử phù hợp cho việc luyện tập tại nhà và biểu diễn nhỏ.</p>
-              </div>
-            </div>
-             <!-- Blog 4 -->
-            <div class="blog-card" data-category="instruments">
-              <img src="https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?q=80&w=2070&auto=format&fit=crop" alt="Violin" class="blog-img">
-              <div class="blog-content">
-                <div class="blog-meta">Violin • 08/07/2023</div>
-                <h3 class="blog-title"><a href="#">Bí quyết bảo quản đàn Violin luôn như mới</a></h3>
-                <p class="blog-desc">Những mẹo nhỏ nhưng quan trọng để giữ cho cây đàn violin của bạn luôn bền đẹp và âm thanh chuẩn.</p>
-              </div>
-            </div>
-             <!-- Blog 5 -->
-            <div class="blog-card" data-category="instruments">
-              <img src="https://images.unsplash.com/photo-1575619176378-5e7e0e470817?q=80&w=1932&auto=format&fit=crop" alt="Ukulele" class="blog-img">
-              <div class="blog-content">
-                <div class="blog-meta">Ukulele • 05/07/2023</div>
-                <h3 class="blog-title"><a href="#">Ukulele vs Guitar: Bạn nên bắt đầu với nhạc cụ nào?</a></h3>
-                <p class="blog-desc">So sánh chi tiết về độ khó, chi phí và phong cách âm nhạc để bạn dễ dàng lựa chọn.</p>
-              </div>
-            </div>
-             <!-- Blog 6 -->
-            <div class="blog-card" data-category="instruments">
-              <img src="https://images.unsplash.com/photo-1573871666457-7c7329118cf9?q=80&w=2070&auto=format&fit=crop" alt="Saxophone" class="blog-img">
-              <div class="blog-content">
-                <div class="blog-meta">Saxophone • 02/07/2023</div>
-                <h3 class="blog-title"><a href="#">Nhập môn Saxophone: Những điệu Jazz kinh điển</a></h3>
-                <p class="blog-desc">Tìm hiểu về lịch sử của Saxophone và những bản nhạc Jazz huyền thoại dành cho người mới.</p>
-              </div>
-            </div>
+            
+            <!-- Navigation Buttons -->
+            <button class="slider-btn blog-prev" id="blog-prev">
+              <span class="material-icons-outlined">chevron_left</span>
+            </button>
+            <button class="slider-btn blog-next" id="blog-next">
+              <span class="material-icons-outlined">chevron_right</span>
+            </button>
+
+            <!-- Dots -->
+            <div class="slider-dots" id="blog-dots"></div>
           </div>
-
-
+        </div>
+          
+        <!-- Blog Grid Section -->
+        <div class="blog-grid-section">
+          <h2 class="section-title">
+            <span class="title-icon">📚</span>
+            Tất cả bài viết
+          </h2>
+          
+          <div class="blog-grid" id="blog-grid">
+             <!-- Blog grid items will be loaded here -->
+          </div>
+          
+          <div class="text-center mt-8">
+            <button class="btn btn-outline load-more-btn" id="load-more-btn">
+              <span class="btn-text">Xem thêm</span>
+              <span class="material-icons-outlined btn-icon">expand_more</span>
+            </button>
+          </div>
         </div>
       </div>
+
+      <!-- Scroll to Top Button -->
+      <button class="scroll-to-top" id="scroll-to-top">
+        <span class="material-icons-outlined">arrow_upward</span>
+      </button>
 
       <!-- Newsletter Section -->
       <section class="newsletter-section py-12 mt-12 bg-gray-50">
