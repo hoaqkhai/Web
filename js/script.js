@@ -116,6 +116,54 @@ const staticData = {
       date: "20/06/2023",
       image: "https://images.unsplash.com/photo-1571327073757-71d13c24de30?q=80&w=2070&auto=format&fit=crop",
       desc: "Bí quyết căng mặt trống snare để đạt được âm thanh đanh, gọn và uy lực chuẩn phòng thu."
+    },
+    {
+      id: 10,
+      title: "Bảo dưỡng Guitar điện: Những điều cần biết",
+      category: "Guitar",
+      date: "18/06/2023",
+      image: "https://images.unsplash.com/photo-1550291652-6ea9114a47b1?q=80&w=1974&auto=format&fit=crop",
+      desc: "Cách vệ sinh, thay dây và bảo quản guitar điện để đảm bảo tuổi thọ và chất lượng âm thanh tốt nhất."
+    },
+    {
+      id: 11,
+      title: "Luyện ngón Piano: Các bài tập Scale cơ bản",
+      category: "Piano",
+      date: "15/06/2023",
+      image: "https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop",
+      desc: "Tổng hợp các bài tập chạy ngón scale giúp tăng độ linh hoạt và chính xác cho đôi tay của bạn."
+    },
+    {
+      id: 12,
+      title: "Cajon: Nhạc cụ bộ gõ nhỏ gọn đầy thú vị",
+      category: "Trống",
+      date: "12/06/2023",
+      image: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=2070&auto=format&fit=crop",
+      desc: "Tại sao Cajon lại được ưa chuộng trong các buổi acoustic? Hướng dẫn cơ bản cho người mới bắt đầu."
+    },
+    {
+      id: 13,
+      title: "Cách chọn Vĩ (Bow) phù hợp cho đàn Violin",
+      category: "Violin",
+      date: "10/06/2023",
+      image: "https://images.unsplash.com/photo-1465821185993-2915db90faaf?q=80&w=2134&auto=format&fit=crop",
+      desc: "Vĩ đàn ảnh hưởng rất lớn đến âm thanh. Tìm hiểu cách chọn vĩ phù hợp với trình độ và cây đàn của bạn."
+    },
+    {
+      id: 14,
+      title: "Kỹ thuật lấy hơi khi chơi sáo và kèn",
+      category: "Sáo",
+      date: "08/06/2023",
+      image: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop",
+      desc: "Làm chủ hơi thở là chìa khóa để chơi tốt các nhạc cụ hơi. Các bài tập thở bụng hiệu quả."
+    },
+    {
+      id: 15,
+      title: "Nhạc lý căn bản: Tại sao bạn nên học?",
+      category: "Guitar",
+      date: "05/06/2023",
+      image: "https://images.unsplash.com/photo-1507838153414-b4b713384ebd?q=80&w=2070&auto=format&fit=crop",
+      desc: "Hiểu về nhạc lý giúp bạn chơi nhạc một cách chủ động, sáng tạo và giao tiếp tốt hơn với các nhạc công khác."
     }
   ]
 };
@@ -162,21 +210,18 @@ $(document).ready(function() {
     });
 
     initProductSlider();
-    initScrollAnimations();
+    // initScrollAnimations(); // Removed to prevent double initialization/resetting
   }
 
   function fetchAndRenderBlogs() {
     const blogTrack = $('#blog-track');
-    const blogGrid = $('#blog-grid');
     
     // Check if we are on the blog page
     if (blogTrack.length === 0) {
-      console.log('Blog track not found - not on blog page');
       return;
     }
 
     const blogs = staticData.blogs;
-    console.log('Rendering blogs:', blogs.length, 'posts');
     
     // 1. Render Slider (Featured - first 5)
     blogTrack.empty();
@@ -186,22 +231,152 @@ $(document).ready(function() {
        blogTrack.html('<p class="text-center w-full">Không có bài viết nào.</p>');
     } else {
         sliderBlogs.forEach((blog) => {
-          blogTrack.append(createBlogCard(blog));
+          const card = $(createBlogCard(blog));
+           // Set initial state for scroll animation
+           card.css({
+               'opacity': '0',
+               'transform': 'translateY(30px)',
+               'transition': 'all 0.6s ease-out' 
+           });
+          blogTrack.append(card);
         });
         initBlogSlider();
+        
+        // Trigger scroll check to reveal slider items
+        setTimeout(() => {
+          $(window).trigger('scroll');
+        }, 100);
     }
 
-    // 2. Render Grid (Display all blog posts)
-    blogGrid.empty();
-    console.log('Blog grid element found:', blogGrid.length > 0);
+    // 2. Initialize Grid with Pagination & Filtering
+    initUnifiedBlogLogic(blogs);
+  }
+
+  // Unified Blog Logic (Search, Filter, Pagination)
+  function initUnifiedBlogLogic(allBlogs) {
+    const blogGrid = $('#blog-grid');
+    const loadMoreBtn = $('#load-more-btn');
+    const searchInput = $('#blog-search');
+    const searchBtn = $('.search-btn'); // Matches HTML class
+    const categoryPills = $('.category-pill');
     
-    blogs.forEach((blog, index) => {
-         const card = createBlogCard(blog);
-         console.log('Adding blog card', index + 1, ':', blog.title);
-         blogGrid.append(card);
+    // State
+    let state = {
+      items: [...allBlogs], // Start with all blogs
+      filteredItems: [...allBlogs],
+      currentPage: 1,
+      itemsPerPage: 6,
+      currentFilter: 'all',
+      searchQuery: ''
+    };
+
+    // Initial Render
+    renderGrid();
+
+    // Event Listeners
+    
+    // 1. Load More
+    loadMoreBtn.on('click', function() {
+      state.currentPage++;
+      renderGrid(true); // true = append
     });
-    
-    console.log('Total cards in grid:', blogGrid.find('.blog-card').length);
+
+    // 2. Category Filter
+    categoryPills.on('click', function() {
+      const category = $(this).data('category');
+      
+      // Update UI
+      categoryPills.removeClass('active');
+      $(this).addClass('active');
+      
+      // Update State
+      state.currentFilter = category;
+      state.currentPage = 1;
+      applyFilters();
+    });
+
+    // 3. Search
+    function performSearch() {
+      const query = searchInput.val().toLowerCase().trim();
+      state.searchQuery = query;
+      state.currentPage = 1;
+      applyFilters();
+    }
+
+    searchBtn.on('click', performSearch);
+    searchInput.on('keyup', function(e) {
+      if (e.key === 'Enter') performSearch();
+    });
+
+    // Core Functions
+
+    function applyFilters() {
+      // Filter by Category
+      let result = state.items;
+      
+      if (state.currentFilter !== 'all') {
+        result = result.filter(blog => 
+             blog.category.toLowerCase() === state.currentFilter.toLowerCase()
+        );
+      }
+
+      // Filter by Search
+      if (state.searchQuery) {
+        result = result.filter(blog => 
+          blog.title.toLowerCase().includes(state.searchQuery) ||
+          blog.desc.toLowerCase().includes(state.searchQuery) ||
+          blog.category.toLowerCase().includes(state.searchQuery)
+        );
+      }
+
+      state.filteredItems = result;
+      renderGrid(false); // false = reset grid
+    }
+
+    function renderGrid(append = false) {
+      if (!append) {
+        blogGrid.empty();
+        blogGrid.show(); // Ensure container is visible
+      }
+
+      const start = 0; 
+      
+      let sliceStart = (state.currentPage - 1) * state.itemsPerPage;
+      let sliceEnd = state.currentPage * state.itemsPerPage;
+      
+      if (!append) {
+          sliceStart = 0;
+          sliceEnd = state.itemsPerPage;
+      }
+
+      const itemsToShow = state.filteredItems.slice(sliceStart, sliceEnd);
+      console.log('Rendering grid items:', itemsToShow.length, 'Append:', append);
+      
+      if (itemsToShow.length === 0 && !append) {
+        blogGrid.html('<div class="w-full text-center py-8"><p class="text-gray-500">Không tìm thấy bài viết nào.</p></div>');
+        loadMoreBtn.parent().hide();
+        return;
+      }
+
+      itemsToShow.forEach(blog => {
+        const card = $(createBlogCard(blog));
+        blogGrid.append(card);
+      });
+
+      // Update Load More Button visibility
+      if (sliceEnd >= state.filteredItems.length) {
+        loadMoreBtn.parent().fadeOut();
+      } else {
+        loadMoreBtn.parent().fadeIn();
+        loadMoreBtn.prop('disabled', false).find('.btn-text').text('Xem thêm');
+        loadMoreBtn.find('.btn-icon').show();
+      }
+
+      // Trigger scroll check to reveal items
+      setTimeout(() => {
+          $(window).trigger('scroll');
+      }, 100);
+    }
   }
 
   // Helper to create card HTML reuse
@@ -226,66 +401,7 @@ $(document).ready(function() {
             </div>
       `;
   }
-
-  // Blog Search Functionality
-  function initBlogSearch() {
-    const searchInput = $('#blog-search');
-    const searchBtn = $('.search-btn');
-    
-    function performSearch() {
-      const searchTerm = searchInput.val().toLowerCase().trim();
-      const blogCards = $('.blog-grid .blog-card');
-      
-      blogCards.each(function() {
-        const title = $(this).find('.blog-title').text().toLowerCase();
-        const desc = $(this).find('.blog-desc').text().toLowerCase();
-        const category = $(this).find('.blog-category').text().toLowerCase();
-        
-        if (title.includes(searchTerm) || desc.includes(searchTerm) || category.includes(searchTerm)) {
-          $(this).fadeIn(300);
-        } else {
-          $(this).fadeOut(300);
-        }
-      });
-    }
-    
-    searchInput.on('keyup', function(e) {
-      if (e.key === 'Enter') {
-        performSearch();
-      }
-    });
-    
-    searchBtn.on('click', performSearch);
-  }
-
-  // Category Filter Functionality
-  function initCategoryFilter() {
-    const categoryPills = $('.category-pill');
-    const blogCards = $('.blog-grid .blog-card');
-    
-    categoryPills.on('click', function() {
-      const selectedCategory = $(this).data('category');
-      
-      // Update active state
-      categoryPills.removeClass('active');
-      $(this).addClass('active');
-      
-      // Filter cards
-      if (selectedCategory === 'all') {
-        blogCards.fadeIn(400);
-      } else {
-        blogCards.each(function() {
-          const cardCategory = $(this).data('category');
-          if (cardCategory === selectedCategory) {
-            $(this).fadeIn(400);
-          } else {
-            $(this).fadeOut(400);
-          }
-        });
-      }
-    });
-  }
-
+  
   // Scroll to Top Button
   function initScrollToTop() {
     const scrollBtn = $('#scroll-to-top');
@@ -298,106 +414,11 @@ $(document).ready(function() {
       }
     });
     
+
+    
     scrollBtn.on('click', function() {
       $('html, body').animate({ scrollTop: 0 }, 600);
     });
-  }
-
-  // --- Initialization Functions ---
-
-  function initBannerSlider() {
-    const bannerSlider = $('#banner-slider');
-    const bannerSlides = bannerSlider.find('.slide');
-    const bannerPrevBtn = $('#banner-prevBtn');
-    const bannerNextBtn = $('#banner-nextBtn');
-    let bannerIndex = 0;
-    const bannerCount = bannerSlides.length;
-
-    if (bannerCount === 0) return;
-
-    function showBannerSlide(index) {
-      if (index < 0) bannerIndex = bannerCount - 1;
-      else if (index >= bannerCount) bannerIndex = 0;
-      else bannerIndex = index;
-
-      const offset = -bannerIndex * 100;
-      bannerSlider.css('transform', `translateX(${offset}%)`);
-    }
-
-    // Unbind old events if any to prevent duplicates
-    bannerPrevBtn.off('click').click(() => showBannerSlide(bannerIndex - 1));
-    bannerNextBtn.off('click').click(() => showBannerSlide(bannerIndex + 1));
-
-    // Auto slide banner
-    let bannerInterval = setInterval(() => showBannerSlide(bannerIndex + 1), 5000);
-
-    // Pause on hover
-    bannerSlider.hover(
-      () => clearInterval(bannerInterval),
-      () => bannerInterval = setInterval(() => showBannerSlide(bannerIndex + 1), 5000)
-    );
-  }
-
-  function initProductSlider() {
-    const productTrack = $('.product-track');
-    const productCards = $('.product-card');
-    const prevProductBtn = $('.prev-product');
-    const nextProductBtn = $('.next-product');
-    
-    let productIndex = 0;
-    const totalProducts = productCards.length;
-    
-    if (totalProducts === 0) return;
-
-    function getVisibleItems() {
-      if (window.innerWidth <= 600) return 1;
-      if (window.innerWidth <= 992) return 2;
-      return 3;
-    }
-
-    function updateProductSlider() {
-      const visibleItems = getVisibleItems();
-      const maxIndex = Math.max(0, totalProducts - visibleItems);
-      
-      // Boundary checks
-      if (productIndex < 0) productIndex = 0;
-      if (productIndex > maxIndex) productIndex = maxIndex;
-
-      const itemWidth = productCards.first().outerWidth();
-      // Assuming 30px gap from CSS (if applicable, otherwise check CSS)
-      // If gap is dynamic or undefined in CSS, this might need adjustment.
-      // For now assume standard 30px or 0 if flex gap isn't used for calculating
-      // But typically outerWidth(true) includes margin if present.
-      // Let's rely on outerWidth including margin if set via css.
-      // If gap is via flex property on parent, we need to add it manually.
-      // Let's assume a fixed gap for now as per previous logic.
-      const gap = 30; 
-      const moveAmount = (itemWidth + gap) * productIndex;
-      
-      productTrack.css('transform', `translateX(-${moveAmount}px)`);
-      
-      // Update button states
-      prevProductBtn.css('opacity', productIndex === 0 ? '0.5' : '1');
-      nextProductBtn.css('opacity', productIndex >= maxIndex ? '0.5' : '1');
-    }
-
-    prevProductBtn.off('click').click(() => {
-      productIndex--;
-      updateProductSlider();
-    });
-
-    nextProductBtn.off('click').click(() => {
-      productIndex++;
-      updateProductSlider();
-    });
-
-    // Handle Resize
-    $(window).off('resize.productSlider').on('resize.productSlider', () => {
-      updateProductSlider();
-    });
-    
-    // Initial call
-    updateProductSlider();
   }
 
   function initScrollAnimations() {
@@ -407,6 +428,7 @@ $(document).ready(function() {
       $('.product-card, .feature-item, .testimonial-card, .section-heading, .blog-card').each(function() {
         const top = $(this)[0].getBoundingClientRect().top;
         if (top < triggerBottom) {
+          $(this).addClass('visible');
           $(this).css({
             'opacity': '1',
             'transform': 'translateY(0)'
@@ -415,8 +437,8 @@ $(document).ready(function() {
       });
     }
 
-    // Initial styles for animation elements
-    $('.product-card, .feature-item, .testimonial-card, .section-heading, .blog-card').css({
+    // Initial styles
+    $('.product-card, .feature-item, .testimonial-card, .section-heading, .blog-card').not('.visible').css({
       'opacity': '0',
       'transform': 'translateY(30px)',
       'transition': 'all 0.6s ease-out'
@@ -424,78 +446,9 @@ $(document).ready(function() {
 
     window.removeEventListener('scroll', checkScroll);
     window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Check on load
+    checkScroll();
   }
 
-  function initBlogFunctionality() {
-    const blogCards = $('.blog-card');
-    const categoryLinks = $('.category-link');
-    const searchInput = $('#blog-search');
-    const searchBtn = $('#search-btn');
-
-    // Category Filtering
-    categoryLinks.off('click').click(function(e) {
-      e.preventDefault();
-      
-      // Active class
-      categoryLinks.removeClass('active');
-      $(this).addClass('active');
-
-      const filter = $(this).data('filter');
-
-      blogCards.each(function() {
-        const cardCategory = $(this).data('category');
-        // Simple case insensitive check or direct match
-        // Note: data-category in HTML must match filter.
-        // Assuming your static HTML had data-category matching filters.
-        
-        // Since we are fetching from API, we used the exact category string from API.
-        // We might need to normalize if the filter buttons use 'all', 'guitars' vs 'Guitar'.
-        // Let's assume basic robust check or matching strings.
-        
-        let shouldShow = (filter === 'all');
-        if (!shouldShow) {
-             // Basic normalization for demo
-             const normCard = cardCategory.toLowerCase();
-             const normFilter = filter.toLowerCase();
-             if (normCard.includes(normFilter) || normFilter.includes(normCard)) {
-                 shouldShow = true;
-             }
-        }
-
-        if (shouldShow) {
-          $(this).fadeIn();
-          $(this).addClass('visible');
-        } else {
-          $(this).fadeOut();
-          $(this).removeClass('visible');
-        }
-      });
-    });
-
-    // Search Functionality
-    function performSearch() {
-      const searchTerm = searchInput.val().toLowerCase();
-
-      blogCards.each(function() {
-        const title = $(this).find('.blog-title').text().toLowerCase();
-        
-        if (title.includes(searchTerm)) {
-          $(this).fadeIn();
-          $(this).addClass('visible');
-        } else {
-          $(this).fadeOut();
-          $(this).removeClass('visible');
-        }
-      });
-    }
-
-    searchBtn.off('click').click(performSearch);
-    searchInput.off('keyup').on('keyup', function(e) {
-      if (e.key === 'Enter') performSearch();
-      else performSearch(); // Real-time search
-    });
-  }
 
   function initBlogSlider() {
     const track = $('#blog-track');
@@ -504,8 +457,7 @@ $(document).ready(function() {
     const nextBtn = $('#blog-next');
     const dotsContainer = $('#blog-dots');
     
-    // Safety check - if no cards yet (rendered async), we wait or return? 
-    // This function is called AFTER rendering in fetchAndRenderBlogs, so it's safe.
+    // Safety check
     if (cards.length === 0) return;
 
     let currentIndex = 0;
@@ -520,15 +472,8 @@ $(document).ready(function() {
     function renderDots() {
        dotsContainer.empty();
        const visibleItems = getVisibleItems();
-       // Limit max validation
        const maxIndex = Math.max(0, cards.length - visibleItems); 
        
-       // Create dots for every possible starting position (simple carousel logic)
-       // Or simpler: one dot per page? 
-       // User asked for "slideshow", usually implies standard carousel behavior.
-       // Let's do 1 dot per item to be safe and standard, but handle active state correctly.
-       
-       // Actually, common carousel UI: number of dots = (total items - visible items) + 1
        const count = maxIndex + 1;
 
        for(let i = 0; i < count; i++) {
@@ -626,8 +571,6 @@ $(document).ready(function() {
   fetchAndRenderBlogs();
   
   // Initialize blog-specific features
-  initBlogSearch();
-  initCategoryFilter();
   initScrollToTop();
   
   // Initialize scroll animations for all pages
@@ -701,5 +644,84 @@ function initAuthModal() {
       alert(isLogin ? 'Đăng nhập thành công!' : 'Đăng ký thành công!');
       closeModal();
     }, 1500);
+  });
+}
+
+// --- Missing Slider Initializations ---
+
+function initBannerSlider() {
+  const slider = $('#banner-slider');
+  const slides = slider.find('.slide');
+  const prevBtn = $('#banner-prevBtn');
+  const nextBtn = $('#banner-nextBtn');
+  
+  if (slider.length === 0 || slides.length === 0) return;
+
+  let currentIndex = 0;
+  let interval;
+
+  // Initial setup: Show first slide, hide others (Simple visibility toggle or transform)
+  // Assuming CSS handles basic layout, we'll just toggle a class or style
+  slides.hide().first().show();
+
+  function showSlide(index) {
+    if (index >= slides.length) currentIndex = 0;
+    else if (index < 0) currentIndex = slides.length - 1;
+    else currentIndex = index;
+
+    slides.fadeOut(300);
+    slides.eq(currentIndex).fadeIn(300);
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  // Auto-play
+  function startAutoPlay() {
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoPlay() {
+    clearInterval(interval);
+  }
+
+  // Event Listeners
+  nextBtn.click(() => {
+    nextSlide();
+    startAutoPlay();
+  });
+
+  prevBtn.click(() => {
+    prevSlide();
+    startAutoPlay();
+  });
+
+  slider.hover(stopAutoPlay, startAutoPlay);
+
+  startAutoPlay();
+}
+
+function initProductSlider() {
+  const track = $('.product-track');
+  const prevBtn = $('.nav-btn.prev-product');
+  const nextBtn = $('.nav-btn.next-product');
+
+  if (track.length === 0) return;
+
+  // Simple scroll-based slider
+  const scrollAmount = 320; // Approx card width + gap
+
+  nextBtn.click(() => {
+    track.animate({ scrollLeft: track.scrollLeft() + scrollAmount }, 300);
+  });
+
+  prevBtn.click(() => {
+    track.animate({ scrollLeft: track.scrollLeft() - scrollAmount }, 300);
   });
 }
